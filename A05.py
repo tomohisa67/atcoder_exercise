@@ -1,0 +1,1 @@
+N, X = list(map(int, input().split()))
