@@ -28,29 +28,17 @@ for i in range(H):
         elif j == 0:
             m[i][j] = m[i-1][j] + X[i][j]
         else:
-            m[i][j] = m[i-1][j] + m[i][j-1] - m[i-1][j-1]
+            m[i][j] = m[i-1][j] + m[i][j-1] - m[i-1][j-1] + X[i][j]
 
         
 for i in range(Q):
-    ans = m[H-1,B[i]] + m[A[i]][W-1] - m[A[i]][B[i]] - m[C[i]][D[i]]
-    print(ans)
+    if A[i] == 1 and B[i] == 1:
+        ans = m[0][0]
+    elif A[i] == 1:
+        ans = m[C[i]-1][D[i]-1] - m[H-1,B[i]-1]
+    elif B[i] == 1:
+        ans = m[C[i]-1][D[i]-1]  - m[A[i]-1][W-1]
+    else:
+        ans = m[C[i]-1][D[i]-1] - m[H-1][B[i]-1] - m[A[i]-1][W-1] + m[A[i]-2][B[i]-2]
+    print(int(ans))
             
-        
-            
-        
-            
-
-
-
-# m = np.zeros((H,W))
-# for i in range(H):
-#     for j in range(W):
-#         if i == 0 and j == 0:
-#             m[i,j] = X[0,0]
-#         elif i == 0:
-#             m[i,j] = m[i,j-1] + X[i,j]
-#         elif j == 0:
-#             m[i,j] = m[i-1,j] + X[i,j]
-#         else:
-#             m[i,j] = m[i-1,j] + m[i,j-1] - m[i-1,j-1]
-        
