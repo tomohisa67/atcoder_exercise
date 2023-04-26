@@ -13,10 +13,10 @@ Y = np.zeros((Q,4), dtype=int)
 for i in range(Q):
     tmp = list(map(int, input().split()))
     Y[i] = tmp
-A = Y[:,0]
-B = Y[:,1]
-C = Y[:,2]
-D = Y[:,3]
+A = Y[:,0] - 1
+B = Y[:,1] - 1
+C = Y[:,2] - 1
+D = Y[:,3] - 1
 
 m = np.zeros((H,W))
 for i in range(H):
@@ -32,13 +32,13 @@ for i in range(H):
 
         
 for i in range(Q):
-    if A[i] == 1 and B[i] == 1:
-        ans = m[0][0]
-    elif A[i] == 1:
-        ans = m[C[i]-1][D[i]-1] - m[H-1,B[i]-1]
-    elif B[i] == 1:
-        ans = m[C[i]-1][D[i]-1]  - m[A[i]-1][W-1]
+    if A[i] == 0 and B[i] == 0:
+        ans = m[C[i]][D[i]]
+    elif A[i] == 0:
+        ans = m[C[i]][D[i]] - m[C[i]][B[i]-1]
+    elif B[i] == 0:
+        ans = m[C[i]][D[i]] - m[A[i]-1][D[i]]
     else:
-        ans = m[C[i]-1][D[i]-1] - m[H-1][B[i]-1] - m[A[i]-1][W-1] + m[A[i]-2][B[i]-2]
+        ans = m[C[i]][D[i]] - m[C[i]][B[i]-1] - m[A[i]-1][D[i]] + m[A[i]-1][B[i]-1]
     print(int(ans))
             
