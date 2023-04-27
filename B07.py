@@ -28,11 +28,13 @@ for i in range(N):
         inc[L] += 1
     else:
         inc[L] += 1
-        dec[R] += 1
+        dec[R] += 1 # inc[R] -= 1
 
 num = 0
 for i in range(T):
     num = num + inc[i] - dec[i]
     print(num) 
+
+
 
 

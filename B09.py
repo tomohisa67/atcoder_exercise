@@ -12,17 +12,11 @@ import numpy as np
 N = int(input())
 Z = np.zeros((1501, 1501))
 
-X = np.array([])
+inc = np.zeros((1500,1500))
+dec = np.zeros((1500,1500))
 for i in range(N):
-    coordinate = list(map(int, input().split()))
-    if i == 0:
-        X = coordinate
-    else:
-        X = np.vstack((X, coordinate))
-    
-A = X[:, 0]
-B = X[:, 1]
-C = X[:, 2]
-D = X[:, 3]
-
-print(min(A))
+    a, b, c, d = map(int, input().split())
+    inc[a-1][b-1] += 1
+    dec[c-1][d-1] -= 1
+    dec[a-1][d-1] -= 1
+    dec[c-1][b-1] -= 1
