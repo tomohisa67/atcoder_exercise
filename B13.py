@@ -35,3 +35,4 @@ for i in range(N):
     ans += ind - i
     K += A[i]
 print(ans)
+

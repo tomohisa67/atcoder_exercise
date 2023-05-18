@@ -36,3 +36,4 @@ Answer = 0
 for i in range(N):
 	Answer += (R[i] - i + 1)
 print(Answer)
+
