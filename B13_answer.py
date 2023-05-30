@@ -37,3 +37,16 @@ for i in range(N):
 	Answer += (R[i] - i + 1)
 print(Answer)
 
+print("hello")
+
+for i in range(N):
+	print(R[i])
+
+def binary_search(l, r, S, K):
+	while r - l > 1:
+		mid = (l + r) // 2
+		if sum(i, mid, S) <= K:
+			l = mid
+		else:
+			r = mid
+	return l
