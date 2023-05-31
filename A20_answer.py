@@ -1,8 +1,8 @@
 import io
 import sys
 _INPUT = """\
-yyyyy
-kyoto
+competitive
+programming
 """
 sys.stdin = io.StringIO(_INPUT)
 
@@ -25,5 +25,7 @@ for i in range(0, N+1):
 			dp[i][j] = dp[i-1][j]
 		elif j>=1:
 			dp[i][j] = dp[i][j-1]
+
+import numpy as np
 # 出力
 print(dp[N][M])
